@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
+using MoneyMe.Repositories.Data;
 using MoneyMe.Services;
 using MoneyMe.Services.Interfaces;
 using MoneyMe.WebAPI.ServiceCollectionExtensions;
@@ -14,6 +17,17 @@ namespace MoneyMe.WebAPI
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+            builder.Services.AddDbContext<MoneyMeContext>(
+                options =>
+                {
+                    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
+                        b =>
+                        {
+                            b.MigrationsAssembly("MoneyMe.Repositories");
+                        });
+                }
+            );
 
             // Services
             builder.Services.AddMoneyMeServices();

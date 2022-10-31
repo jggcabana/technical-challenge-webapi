@@ -1,4 +1,4 @@
-﻿using MoneyMe.Repositories.Data;
+﻿using MoneyMe.Repositories.Data.DBModels;
 using MoneyMe.Repositories.Interfaces;
 using MoneyMe.Repositories.ViewModels.Requests;
 using System;

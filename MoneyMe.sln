@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyMe.Services", "MoneyMe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyMe.Repositories", "MoneyMe.Repositories\MoneyMe.Repositories.csproj", "{24A37CAA-E9A4-4651-AF46-C463FF4DB4E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyMe.UnitTests", "MoneyMe.UnitTests\MoneyMe.UnitTests.csproj", "{6762333B-8319-4C6C-9C0D-489CDE8FA769}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{24A37CAA-E9A4-4651-AF46-C463FF4DB4E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24A37CAA-E9A4-4651-AF46-C463FF4DB4E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24A37CAA-E9A4-4651-AF46-C463FF4DB4E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6762333B-8319-4C6C-9C0D-489CDE8FA769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6762333B-8319-4C6C-9C0D-489CDE8FA769}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6762333B-8319-4C6C-9C0D-489CDE8FA769}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6762333B-8319-4C6C-9C0D-489CDE8FA769}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

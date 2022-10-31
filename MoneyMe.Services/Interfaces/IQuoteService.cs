@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MoneyMe.Repositories.Data.DBModels;
+using MoneyMe.Repositories.ViewModels.Requests;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +13,7 @@ namespace MoneyMe.Services.Interfaces
         Task<double> CalculateQuote();
 
         Task<int> Test();
+
+        Task<Quote> SaveQuote(SaveQuoteRequest request);
     }
 }

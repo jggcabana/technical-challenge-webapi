@@ -10,8 +10,8 @@ namespace MoneyMe.Repositories.Interfaces
 {
     public interface IQuoteRepository
     {
-        public Task<Quote> SaveQuote(SaveQuoteRequest request);
+        Task<Quote> SaveQuote(SaveQuoteRequest request);
 
-        public Task<int> Test();
+        Task<int> Test();
     }
 }

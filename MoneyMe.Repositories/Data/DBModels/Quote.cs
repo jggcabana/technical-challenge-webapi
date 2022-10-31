@@ -13,5 +13,9 @@ namespace MoneyMe.Repositories.Data.DBModels
         public virtual User User { get; set; }
 
         public virtual Product Product { get; set; }
+
+        public decimal Amount { get; set; }
+
+        public int Term { get; set; }
     }
 }

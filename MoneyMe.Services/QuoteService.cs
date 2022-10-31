@@ -1,4 +1,6 @@
-﻿using MoneyMe.Repositories.Interfaces;
+﻿using MoneyMe.Repositories.Data.DBModels;
+using MoneyMe.Repositories.Interfaces;
+using MoneyMe.Repositories.ViewModels.Requests;
 using MoneyMe.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -18,6 +20,18 @@ namespace MoneyMe.Services
         public async Task<double> CalculateQuote()
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<Quote> SaveQuote(SaveQuoteRequest request)
+        {
+            // validation 
+            // check if email is in use
+            // check if mobile is in use
+            // check if email is not blacklisted
+            // check if mobile is not blacklisted
+            // check if date of birth is legal
+
+            return await _quoteRepository.SaveQuote(request);
         }
 
         public async Task<int> Test()

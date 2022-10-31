@@ -20,6 +20,8 @@ namespace MoneyMe.Repositories.Data.DBModels
 
         public int DurationMax { get; set; }
 
+        public int StartFromNMonth { get; set; }
+
         public virtual ICollection<Product> Products { get; set; }
     }
 }

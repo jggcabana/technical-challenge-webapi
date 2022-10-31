@@ -35,8 +35,17 @@ namespace MoneyMe.Repositories.Data
             }
 
             modelBuilder.Entity<User>();
-            modelBuilder.Entity<Interest>();
-            modelBuilder.Entity<Product>();
+            modelBuilder.Entity<Interest>()
+                .HasData(
+                    new Interest { Id = 1, Name = "Standard", Description = "Standard Interest", DurationMin = 0, DurationMax = -1, Rate = 0.05, StartFromNMonth = 1},
+                    new Interest { Id = 2, Name = "First 2 Months Free", Description = "First 2 Months Interest Free", DurationMin = 6, DurationMax = -1, Rate = 0.05, StartFromNMonth = 3}
+                );
+            modelBuilder.Entity<Product>()
+                .HasData(
+                    new Product { Id = 1, Name = "ProductA", Description = "Interest Free Loan", InterestId = null },
+                    new Product { Id = 2, Name = "ProductB", Description = "First 2 Months Interest Free", InterestId = 2},
+                    new Product { Id = 3, Name = "ProductA", Description = "Standard Interest", InterestId = 1}
+                );
             modelBuilder.Entity<Quote>();
 
             base.OnModelCreating(modelBuilder);

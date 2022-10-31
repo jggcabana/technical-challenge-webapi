@@ -16,6 +16,6 @@ namespace MoneyMe.Repositories.Data.DBModels
 
         public string Description { get; set; }
 
-        public Interest Interest { get; set; }
+        public virtual Interest Interest { get; set; }
     }
 }

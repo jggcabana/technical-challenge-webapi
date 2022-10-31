@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace MoneyMe.Repositories.Data.DBModels
@@ -22,6 +23,8 @@ namespace MoneyMe.Repositories.Data.DBModels
 
         public int StartFromNMonth { get; set; }
 
+        // TODO: find a better way to exclude nav property when querying Products
+        [JsonIgnore]
         public virtual ICollection<Product> Products { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace MoneyMe.Repositories
         }
         public async Task<IEnumerable<Product>> GetProducts()
         {
-            return await _context.Products.ToListAsync();
+            return await _context.Products.Include(x => x.Interest).AsNoTracking().ToListAsync();
         }
     }
 }

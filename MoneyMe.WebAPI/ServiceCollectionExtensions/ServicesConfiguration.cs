@@ -11,6 +11,9 @@ namespace MoneyMe.WebAPI.ServiceCollectionExtensions
         {
             services.AddScoped<IQuoteService, QuoteService>();
             services.AddScoped<IQuoteRepository, QuoteRepository>();
+            
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductService, ProductService>();
         }
     }
 }

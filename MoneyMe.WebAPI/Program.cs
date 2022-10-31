@@ -1,9 +1,12 @@
+using Microsoft.AspNetCore.Http.Json;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using MoneyMe.Repositories.Data;
 using MoneyMe.Services;
 using MoneyMe.Services.Interfaces;
 using MoneyMe.WebAPI.ServiceCollectionExtensions;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace MoneyMe.WebAPI
 {
@@ -15,8 +18,11 @@ namespace MoneyMe.WebAPI
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            builder.Services.AddControllers().AddJsonOptions(
+                options =>
+                {
+                    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+                });
 
             builder.Services.AddDbContext<MoneyMeContext>(
                 options =>
@@ -32,6 +38,7 @@ namespace MoneyMe.WebAPI
             // Services
             builder.Services.AddMoneyMeServices();
 
+            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 

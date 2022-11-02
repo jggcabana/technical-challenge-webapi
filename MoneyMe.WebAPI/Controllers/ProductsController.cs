@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MoneyMe.Repositories.Data.DBModels;
 using MoneyMe.Services.Interfaces;
@@ -7,6 +8,8 @@ namespace MoneyMe.WebAPI.Controllers
 {
     [Route("api/products")]
     [ApiController]
+    [EnableCors("AnyOrigin")]
+
     public class ProductsController : ControllerBase
     {
         private readonly ILogger<ProductsController> _logger;

@@ -13,5 +13,7 @@ namespace MoneyMe.Repositories.Interfaces
         Task<Quote> SaveQuote(SaveQuoteRequest request);
 
         Task<int> Test();
+
+        Task<Quote> GetQuote(int id);
     }
 }

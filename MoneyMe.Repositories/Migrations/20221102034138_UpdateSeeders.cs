@@ -4,7 +4,7 @@
 
 namespace MoneyMe.Repositories.Migrations
 {
-    public partial class UpdateInterestModel : Migration
+    public partial class UpdateSeeders : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -38,7 +38,7 @@ namespace MoneyMe.Repositories.Migrations
             migrationBuilder.InsertData(
                 table: "Products",
                 columns: new[] { "Id", "Description", "InterestId", "Name" },
-                values: new object[] { 3, "Standard Interest", 1, "ProductA" });
+                values: new object[] { 3, "Standard Interest", 1, "ProductC" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

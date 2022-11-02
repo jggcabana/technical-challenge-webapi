@@ -1,6 +1,7 @@
 ﻿using MoneyMe.Repositories.Data.DBModels;
 using MoneyMe.Repositories.Interfaces;
 using MoneyMe.Repositories.ViewModels.Requests;
+using MoneyMe.Repositories.ViewModels.Responses;
 using MoneyMe.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,24 @@ namespace MoneyMe.Services
             throw new NotImplementedException();
         }
 
+        public async Task<GetQuoteResponse> GetQuote(int id)
+        {
+            var quote = await _quoteRepository.GetQuote(id);
+            return new GetQuoteResponse
+            {
+                Id = quote.Id,
+                Title = quote.User.Title,
+                FirstName = quote.User.FirstName,
+                LastName = quote.User.LastName,
+                DateOfBirth = quote.User.DateOfBirth,
+                Mobile = quote.User.MobileNumber,
+                Email = quote.User.Email,
+                AmountRequired = quote.Amount,
+                Term = quote.Term,
+                IsApplied = quote.IsApplied
+            };
+        }
+
         public async Task<Quote> SaveQuote(SaveQuoteRequest request)
         {
             // validation 
@@ -32,11 +51,6 @@ namespace MoneyMe.Services
             // check if date of birth is legal
 
             return await _quoteRepository.SaveQuote(request);
-        }
-
-        public async Task<int> Test()
-        {
-            return await _quoteRepository.Test();
         }
     }
 }

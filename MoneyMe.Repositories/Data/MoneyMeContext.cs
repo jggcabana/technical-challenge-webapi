@@ -44,7 +44,7 @@ namespace MoneyMe.Repositories.Data
                 .HasData(
                     new Product { Id = 1, Name = "ProductA", Description = "Interest Free Loan", InterestId = null },
                     new Product { Id = 2, Name = "ProductB", Description = "First 2 Months Interest Free", InterestId = 2},
-                    new Product { Id = 3, Name = "ProductA", Description = "Standard Interest", InterestId = 1}
+                    new Product { Id = 3, Name = "ProductC", Description = "Standard Interest", InterestId = 1}
                 );
             modelBuilder.Entity<Quote>();
 

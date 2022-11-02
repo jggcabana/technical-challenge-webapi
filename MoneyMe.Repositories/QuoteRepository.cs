@@ -21,6 +21,19 @@ namespace MoneyMe.Repositories
             _context = context ?? throw new ArgumentNullException(nameof(context)); 
         }
 
+        public async Task<Quote> GetQuote(int id)
+        {
+            try
+            {
+                return await _context.Quotes.Include(x => x.User)
+                    .SingleOrDefaultAsync(x => x.Id == id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public async Task<Quote> SaveQuote(SaveQuoteRequest request)
         {
             try

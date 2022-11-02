@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MoneyMe.Repositories.Data;
 
@@ -11,9 +12,10 @@ using MoneyMe.Repositories.Data;
 namespace MoneyMe.Repositories.Migrations
 {
     [DbContext(typeof(MoneyMeContext))]
-    partial class MoneyMeContextModelSnapshot : ModelSnapshot
+    [Migration("20221102034138_UpdateSeeders")]
+    partial class UpdateSeeders
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -133,9 +135,6 @@ namespace MoneyMe.Repositories.Migrations
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<bool>("IsApplied")
-                        .HasColumnType("bit");
-
                     b.Property<int?>("ProductId")
                         .HasColumnType("int");
 
@@ -175,9 +174,6 @@ namespace MoneyMe.Repositories.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MobileNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

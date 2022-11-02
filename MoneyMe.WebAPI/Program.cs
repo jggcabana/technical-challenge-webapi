@@ -35,6 +35,14 @@ namespace MoneyMe.WebAPI
                 }
             );
 
+            // TODO: Comment out on non-dev build
+            builder.Services.AddCors(o => o.AddPolicy("AnyOrigin", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
             // Services
             builder.Services.AddMoneyMeServices();
 
@@ -52,6 +60,8 @@ namespace MoneyMe.WebAPI
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors();
 
             app.UseAuthorization();
 

@@ -12,8 +12,8 @@ using MoneyMe.Repositories.Data;
 namespace MoneyMe.Repositories.Migrations
 {
     [DbContext(typeof(MoneyMeContext))]
-    [Migration("20221031101238_UpdateInterestModel")]
-    partial class UpdateInterestModel
+    [Migration("20221102054808_AddColumnIsApplied")]
+    partial class AddColumnIsApplied
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -119,7 +119,7 @@ namespace MoneyMe.Repositories.Migrations
                             Id = 3,
                             Description = "Standard Interest",
                             InterestId = 1,
-                            Name = "ProductA"
+                            Name = "ProductC"
                         });
                 });
 
@@ -134,6 +134,9 @@ namespace MoneyMe.Repositories.Migrations
                     b.Property<decimal>("Amount")
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<bool>("IsApplied")
+                        .HasColumnType("bit");
 
                     b.Property<int?>("ProductId")
                         .HasColumnType("int");

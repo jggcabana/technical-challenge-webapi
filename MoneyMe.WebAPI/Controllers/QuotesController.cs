@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using MoneyMe.Repositories.ViewModels.Requests;
@@ -8,6 +9,7 @@ namespace MoneyMe.WebAPI.Controllers
 {
     [Route("api/quotes")]
     [ApiController]
+    [EnableCors("AnyOrigin")]
     public class QuotesController : ControllerBase
     {
         private readonly IConfiguration _config;
@@ -31,11 +33,10 @@ namespace MoneyMe.WebAPI.Controllers
         {
             try
             {
-                return Ok(await _quoteService.Test());
+                return Ok(await _quoteService.GetQuote(quoteId));
             }
             catch (Exception e)
             {
-
                 return StatusCode(500, e.Message);
             }
         }

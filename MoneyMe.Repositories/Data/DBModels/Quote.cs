@@ -17,5 +17,7 @@ namespace MoneyMe.Repositories.Data.DBModels
         public decimal Amount { get; set; }
 
         public int Term { get; set; }
+
+        public bool IsApplied { get; set; }
     }
 }

@@ -1,12 +1,14 @@
-﻿using System;
+﻿using MoneyMe.Repositories.Data.DBModels;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoneyMe.Repositories.ViewModels.Responses
+namespace MoneyMe.Repositories.ViewModels
 {
-    public class GetQuoteResponse
+    public class QuoteViewModel
     {
         public int Id { get; set; }
         
@@ -18,6 +20,7 @@ namespace MoneyMe.Repositories.ViewModels.Responses
 
         public string Mobile { get; set; }
 
+        [EmailAddress]
         public string Email { get; set; }
 
         public DateTime DateOfBirth { get; set; }
@@ -28,6 +31,16 @@ namespace MoneyMe.Repositories.ViewModels.Responses
 
         public bool IsApplied { get; set; } = false;
 
-        
+        public Product Product { get; set; }
+
+        public decimal Repayment { get; set; }
+
+        public decimal EstablishmentFee { get; set; }
+
+        public decimal InterestAmount { get; set; }
+
+        public int PaymentPeriods { get; set; }
+
+
     }
 }

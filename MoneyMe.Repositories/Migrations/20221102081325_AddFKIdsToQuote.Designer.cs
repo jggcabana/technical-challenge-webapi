@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MoneyMe.Repositories.Data;
 
@@ -11,9 +12,10 @@ using MoneyMe.Repositories.Data;
 namespace MoneyMe.Repositories.Migrations
 {
     [DbContext(typeof(MoneyMeContext))]
-    partial class MoneyMeContextModelSnapshot : ModelSnapshot
+    [Migration("20221102081325_AddFKIdsToQuote")]
+    partial class AddFKIdsToQuote
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,58 +23,6 @@ namespace MoneyMe.Repositories.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("MoneyMe.Repositories.Data.DBModels.Blacklist", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("BlacklistType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BlacklistValue")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Blacklists");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            BlacklistType = "EmailDomain",
-                            BlacklistValue = "twitter.com",
-                            IsActive = true
-                        },
-                        new
-                        {
-                            Id = 2,
-                            BlacklistType = "EmailDomain",
-                            BlacklistValue = "tesla.com",
-                            IsActive = true
-                        },
-                        new
-                        {
-                            Id = 3,
-                            BlacklistType = "MobileNumber",
-                            BlacklistValue = "123456789",
-                            IsActive = true
-                        },
-                        new
-                        {
-                            Id = 4,
-                            BlacklistType = "MobileNumber",
-                            BlacklistValue = "987654321",
-                            IsActive = true
-                        });
-                });
 
             modelBuilder.Entity("MoneyMe.Repositories.Data.DBModels.Interest", b =>
                 {
@@ -182,29 +132,18 @@ namespace MoneyMe.Repositories.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<decimal>("Amount")
-                        .HasPrecision(18, 4)
-                        .HasColumnType("decimal(18,4)");
-
-                    b.Property<decimal>("EstablishmentFee")
-                        .HasPrecision(18, 4)
-                        .HasColumnType("decimal(18,4)");
-
-                    b.Property<decimal>("InterestAmount")
-                        .HasPrecision(18, 4)
-                        .HasColumnType("decimal(18,4)");
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<bool>("IsApplied")
                         .HasColumnType("bit");
-
-                    b.Property<int>("PaymentPeriods")
-                        .HasColumnType("int");
 
                     b.Property<int?>("ProductId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Repayment")
-                        .HasPrecision(18, 4)
-                        .HasColumnType("decimal(18,4)");
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Term")
                         .HasColumnType("int");

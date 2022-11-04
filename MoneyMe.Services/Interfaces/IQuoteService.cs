@@ -1,5 +1,5 @@
 ﻿using MoneyMe.Repositories.Data.DBModels;
-using MoneyMe.Repositories.ViewModels.Requests;
+using MoneyMe.Repositories.ViewModels;
 using MoneyMe.Repositories.ViewModels.Responses;
 using System;
 using System.Collections.Generic;
@@ -11,10 +11,12 @@ namespace MoneyMe.Services.Interfaces
 {
     public interface IQuoteService
     {
-        Task<double> CalculateQuote();
+        Task<CalculateQuoteResponse> CalculateQuote(QuoteViewModel request);
 
-        Task<Quote> SaveQuote(SaveQuoteRequest request);
+        Task<Quote> SaveQuote(QuoteViewModel request);
 
-        Task<GetQuoteResponse> GetQuote(int id);
+        Task<QuoteViewModel> ApplyQuote(QuoteViewModel request);
+
+        Task<QuoteViewModel> GetQuote(int id);
     }
 }

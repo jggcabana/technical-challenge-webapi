@@ -20,6 +20,8 @@ namespace MoneyMe.Repositories.Data
         public DbSet<Interest> Interests { get; set; }
         public DbSet<Product> Products { get; set; }
 
+        public DbSet<Blacklist> Blacklists { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // for decimal data types
@@ -31,15 +33,17 @@ namespace MoneyMe.Repositories.Data
             foreach (var property in decimalProps)
             {
                 property.SetPrecision(18);
-                property.SetScale(2);
+                property.SetScale(4);
             }
 
             modelBuilder.Entity<User>();
+
             modelBuilder.Entity<Interest>()
                 .HasData(
                     new Interest { Id = 1, Name = "Standard", Description = "Standard Interest", DurationMin = 0, DurationMax = -1, Rate = 0.05, StartFromNMonth = 1},
                     new Interest { Id = 2, Name = "First 2 Months Free", Description = "First 2 Months Interest Free", DurationMin = 6, DurationMax = -1, Rate = 0.05, StartFromNMonth = 3}
                 );
+
             modelBuilder.Entity<Product>()
                 .HasData(
                     new Product { Id = 1, Name = "ProductA", Description = "Interest Free Loan", InterestId = null },
@@ -48,6 +52,13 @@ namespace MoneyMe.Repositories.Data
                 );
             modelBuilder.Entity<Quote>();
 
+            modelBuilder.Entity<Blacklist>()
+                .HasData(
+                    new Blacklist { Id = 1, BlacklistType = "EmailDomain", BlacklistValue = "twitter.com", IsActive = true },
+                    new Blacklist { Id = 2, BlacklistType = "EmailDomain", BlacklistValue = "tesla.com", IsActive = true },
+                    new Blacklist { Id = 3, BlacklistType = "MobileNumber", BlacklistValue = "123456789", IsActive = true },
+                    new Blacklist { Id = 4, BlacklistType = "MobileNumber", BlacklistValue = "987654321", IsActive = true }
+                );
             base.OnModelCreating(modelBuilder);
         }
 

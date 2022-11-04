@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using MoneyMe.Repositories.ViewModels.Requests;
+using MoneyMe.Repositories.ViewModels;
 using MoneyMe.Services.Interfaces;
 
 namespace MoneyMe.WebAPI.Controllers
@@ -42,7 +42,21 @@ namespace MoneyMe.WebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SaveQuote(SaveQuoteRequest request)
+        [Route("{quoteId}/calculate")]
+        public async Task<IActionResult> CalculateQuote(int quoteId, [FromBody] QuoteViewModel request)
+        {
+            try
+            {
+                return Ok(await _quoteService.CalculateQuote(request));
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SaveQuote(QuoteViewModel request)
         {
             try
             {
@@ -50,9 +64,25 @@ namespace MoneyMe.WebAPI.Controllers
                 if (result == null)
                     throw new Exception("No data saved!");
 
-                var createdUrl = $"{_baseUrl}/quotes/{result.Id}";
+                var getUrl = $"{_baseUrl}/api/quotes/{result.Id}";
+                var createdUrl = $"{_baseUrl}/quote-calculator/{result.Id}";
 
-                return Created(createdUrl, result);
+                return Created(getUrl, new { siteLink = createdUrl, data = result });
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("{quoteId}/apply")]
+        public async Task<IActionResult> ApplyQuote(QuoteViewModel request)
+        {
+            try
+            {
+                var result = await _quoteService.ApplyQuote(request);
+                return Ok(result);
             }
             catch (Exception e)
             {

@@ -1,0 +1,15 @@
+C:\Users\JGC\source\repos\MoneyMe\MoneyMe.Services\bin\Debug\net6.0\MoneyMe.Services.deps.json
+C:\Users\JGC\source\repos\MoneyMe\MoneyMe.Services\bin\Debug\net6.0\MoneyMe.Services.dll
+C:\Users\JGC\source\repos\MoneyMe\MoneyMe.Services\bin\Debug\net6.0\MoneyMe.Services.pdb
+C:\Users\JGC\source\repos\MoneyMe\MoneyMe.Services\bin\Debug\net6.0\MoneyMe.Repositories.dll
+C:\Users\JGC\source\repos\MoneyMe\MoneyMe.Services\bin\Debug\net6.0\MoneyMe.Repositories.pdb
+C:\Users\JGC\source\repos\MoneyMe\MoneyMe.Services\obj\Debug\net6.0\MoneyMe.Services.csproj.AssemblyReference.cache
+C:\Users\JGC\source\repos\MoneyMe\MoneyMe.Services\obj\Debug\net6.0\MoneyMe.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\JGC\source\repos\MoneyMe\MoneyMe.Services\obj\Debug\net6.0\MoneyMe.Services.AssemblyInfoInputs.cache
+C:\Users\JGC\source\repos\MoneyMe\MoneyMe.Services\obj\Debug\net6.0\MoneyMe.Services.AssemblyInfo.cs
+C:\Users\JGC\source\repos\MoneyMe\MoneyMe.Services\obj\Debug\net6.0\MoneyMe.Services.csproj.CoreCompileInputs.cache
+C:\Users\JGC\source\repos\MoneyMe\MoneyMe.Services\obj\Debug\net6.0\MoneyMe.Services.csproj.CopyComplete
+C:\Users\JGC\source\repos\MoneyMe\MoneyMe.Services\obj\Debug\net6.0\MoneyMe.Services.dll
+C:\Users\JGC\source\repos\MoneyMe\MoneyMe.Services\obj\Debug\net6.0\refint\MoneyMe.Services.dll
+C:\Users\JGC\source\repos\MoneyMe\MoneyMe.Services\obj\Debug\net6.0\MoneyMe.Services.pdb
+C:\Users\JGC\source\repos\MoneyMe\MoneyMe.Services\obj\Debug\net6.0\ref\MoneyMe.Services.dll

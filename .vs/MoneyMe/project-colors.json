@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a388184d-1679-482e-a623-420f43bac632": {
+      "ProjectGuid": "a388184d-1679-482e-a623-420f43bac632",
+      "DisplayName": "1_MoneyMe.WebAPI",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "01c8775f-de21-43d8-a1ae-8fa0abb800a0": {
+      "ProjectGuid": "01c8775f-de21-43d8-a1ae-8fa0abb800a0",
+      "DisplayName": "_01_MoneyMe.WebAPI",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
